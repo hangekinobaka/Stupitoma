@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "toma-go-middle",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.4,
+  "sample": 10,
+  "speed": 0.7,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "1c9c70ae-38b0-4f5c-8070-6f7f55be06b6"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "9f46fff7-3c41-42e8-935a-038394b2a237"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "1c9c70ae-38b0-4f5c-8070-6f7f55be06b6"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "0bd72d40-6592-4dff-b5ff-849f0f7178dc"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

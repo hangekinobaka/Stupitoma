@@ -1,0 +1,3 @@
+window.D = {
+  toma:null,
+}

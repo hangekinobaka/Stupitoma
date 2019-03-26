@@ -1,0 +1,25 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "toma-turn-left",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.1,
+  "sample": 10,
+  "speed": 0.7,
+  "wrapMode": "1",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2ae664c2-2c58-4cb9-9809-2901d700cc6c"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
