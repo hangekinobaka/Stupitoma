@@ -7,4 +7,6 @@ window.D = {
     l4:null
   },
   windowSize: null,
+  carManager: null,
+  Car: null,
 }

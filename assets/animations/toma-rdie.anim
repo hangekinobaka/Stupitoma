@@ -1,0 +1,93 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "toma-rdie",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9,
+  "sample": 10,
+  "speed": 0.9,
+  "wrapMode": "1",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "aa235854-0bd8-45f8-b4ae-172de63f9d42"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "1be9acad-9a9d-4fb9-b6f9-ef3c5d7335ab"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "6f2bdb76-c1d7-4bfb-8ec7-c8b30a8760cc"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "2fa7e405-2e98-48f9-aae8-c07e0606408b"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "19b8b43e-15bb-418e-8dd0-e4e7328f1658"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "6220b623-e306-4179-83f0-5c9a280b69c1"
+            }
+          }
+        ]
+      }
+    },
+    "props": {
+      "anchorX": [
+        {
+          "frame": 0,
+          "value": 0.5
+        },
+        {
+          "frame": 0.4,
+          "value": 0
+        }
+      ],
+      "anchorY": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.4,
+          "value": -0.4
+        },
+        {
+          "frame": 0.5,
+          "value": 0
+        }
+      ],
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": -1
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0.8,
+      "func": "onDieOver",
+      "params": []
+    }
+  ]
+}

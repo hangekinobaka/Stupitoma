@@ -1,3 +1,4 @@
+const carType = require('./cars/CarMover')
 const State = cc.Enum({
   None: 0,
   Walk: 1,
@@ -10,6 +11,10 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
+    collision:  {
+      default: false,
+      tooltip: '是否检测碰撞'
+    },
     speed: 10,
     touchLeft: cc.Node,
     touchRight: cc.Node,
@@ -20,9 +25,16 @@ cc.Class({
       visible: false
     }
   },
-  start() {
+  onLoad(){
     D.toma = this;
+  },
+  start() {
     this.anim = this.getComponent(cc.Animation);
+    this.node.zIndex = 10;
+    // 获取碰撞检测系统
+    var manager = cc.director.getCollisionManager();
+    // 默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统
+    manager.enabled = this.collision;
     // 首次初始化
     this.init();
   },
@@ -32,13 +44,45 @@ cc.Class({
         this.node.y += this.speed * dt;
         break;
       case State.None:
+      case State.Dead:
       default:
         break;
     }
+
+    if(this.node.getBoundingBoxToWorld().yMin > D.windowSize.height){
+      this.goBack();
+    }
   },
+  // 当碰撞产生的时候调用
+  onCollisionEnter: function (other, self) {
+    if (this.state !== State.Dead) {
+      const group = cc.game.groupList[other.node.groupIndex];
+      switch (group) {
+        case 'car':
+          // bump
+          // 获取肇事车辆脚本组件
+          const otherCar = other.getComponent(carType)
+          // if(otherCar.tomaPassed){
+          //   this.die();
+          // }
+          if(otherCar.direction === D.Car.Dir.Right)
+            this.die('l');
+          else
+            this.die('r')
+
+          // D.game.gameOver();
+          break;
+        default:
+          break;
+      }
+    }
+  },
+
   // toma的初始化
   init() {
+    this.node.zIndex = 10;
     this.registerTouch();
+    this.goBack()
   },
   // 前进动作
   walk() {
@@ -105,9 +149,34 @@ cc.Class({
         this.walk();
     })
   },
+  // 取消屏幕左右touch事件
+  cancelTouch() {
+    // 键盘事件
+    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN);
+    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP);
+
+    // touch 事件
+    this.touchLeft.off(cc.Node.EventType.TOUCH_START);
+    this.touchLeft.off(cc.Node.EventType.TOUCH_END);
+    this.touchRight.off(cc.Node.EventType.TOUCH_START)
+    this.touchRight.off(cc.Node.EventType.TOUCH_END)
+  },
   setState(val){
     if(val !== this.state){
       this.state = val;
     }
+  },
+  goBack(){
+    this.node.y = 0
+    this.node.emit('tomaBack')
+  },
+  die(dir){
+    const animName = `toma-${dir}die`
+    this.state = State.Dead;
+    this.anim.play(animName);
+    this.cancelTouch();
+  },
+  onDieOver(){
+    this.node.zIndex = 1;
   }
 });

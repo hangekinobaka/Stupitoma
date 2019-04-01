@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "65281f28-1241-45d7-8f84-e869687a9367",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "toma-ldie-5": {
+      "ver": "1.0.3",
+      "uuid": "19b8b43e-15bb-418e-8dd0-e4e7328f1658",
+      "rawTextureUuid": "65281f28-1241-45d7-8f84-e869687a9367",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -3,
+      "offsetY": 0,
+      "trimX": 6,
+      "trimY": 5,
+      "width": 142,
+      "height": 150,
+      "rawWidth": 160,
+      "rawHeight": 160,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

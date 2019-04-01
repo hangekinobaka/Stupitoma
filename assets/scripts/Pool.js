@@ -20,14 +20,17 @@ cc.Class({
     }
     return undefined
   },
-
-  spawn(prefab, compType, spawnPos, parent) {
-    let comp = this._pool.get(compType);
-    if (!comp) {
-      // console.log('新建对象')
-      comp = cc.instantiate(prefab).getComponent(compType);
-    } else {
-      // console.log('从对象池中取出')
+  spawn(prefab, compType, spawnPos, parent,generator=null) {
+    let comp = this._pool.get(compType);;
+    if(generator===null){
+      if (!comp) {
+        // console.log('新建对象')
+        comp = cc.instantiate(prefab).getComponent(compType);
+      } else {
+        // console.log('从对象池中取出')
+      }
+    }else{
+      comp = generator(comp);
     }
 
     if (parent) {
@@ -50,8 +53,6 @@ cc.Class({
     comp.node.removeFromParent();
     comp.node.active = false;
     this.putIntoPool(comp);
-
-    console.log('回收 ', this._pool)
   },
   // 检查pool是否已满并回收对象
   putIntoPool(comp) {
