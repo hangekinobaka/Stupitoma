@@ -1,4 +1,4 @@
-const car1 = require('cars/carMini')
+const car1 = require('./cars/carMini')
 
 cc.Class({
   extends: cc.Component,
@@ -22,6 +22,6 @@ cc.Class({
   },
   spawnCar(){
     D.carPool['l1'].spawnCar(this.carPrefabs[0],car1,cc.v2(0,200),this.playground,1)
-    // D.carPool['l2'].spawn(this.carPrefabs[0],car1,cc.v2(0,200),this.playground)
+    D.carPool['l2'].spawnCar(this.carPrefabs[1],car1,cc.v2(D.windowSize.width+this.node.width/2,360),this.playground,2)
   },
 });

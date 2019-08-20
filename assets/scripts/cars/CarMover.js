@@ -12,6 +12,7 @@ const Car = cc.Class({
     speed: 100,
     carName: '',
     _line: '',
+    _side: null,
   },
   statics: {
     Dir,
@@ -28,23 +29,25 @@ const Car = cc.Class({
     // 计算轮子转速
     const wheelSpeed = this.speed / 100
 
-    // 判断方向播放动画
-    if (this.direction === Dir.Right) {
-      const animState = this.anim.play(this.carName + '-go-right');
-      animState.speed = wheelSpeed
-    }
+    // 播放转轮动画
+    const animState =  this.anim.play('roll-wheel');
+    animState.speed = wheelSpeed;
     this.init();
-    console.log(this._line)
   },
   update(dt) {
     // 判断方向移动车辆
     if (this.direction === Dir.Right) {
       if (this.node.getBoundingBoxToWorld().xMin > D.windowSize.width) {
-        this.cancelListener();
-        D.carManager.destroyCar(this,this._line);
+        this.destroySelf();
         return;
       }
       this.node.x += this.speed * dt;
+    } else {
+      if (this.node.getBoundingBoxToWorld().xMax < 0) {
+        this.destroySelf();
+        return;
+      }
+      this.node.x -= this.speed * dt;
     }
 
     // 判断toma是否已通过
@@ -61,6 +64,10 @@ const Car = cc.Class({
 
     this.registerEvent();
   },
+  destroySelf() {
+    this.cancelListener();
+    D.carManager.destroyCar(this, this._line);
+  },
   ifTomaHasPassed() {
     if (this.yMin < D.toma.node.getBoundingBoxToWorld().yMin) {
       this.tomaPassed = true;
@@ -72,15 +79,19 @@ const Car = cc.Class({
     D.toma.node.on('tomaBack', () => {
       this.tomaPassed = false;
       this.node.zIndex = 1;
-    },this)
+    }, this)
   },
   cancelListener() {
-    D.toma.node.off('tomaBack',()=>{},this);
+    D.toma.node.off('tomaBack', () => { }, this);
   },
-  setLine(l){
+  setLine(l) {
     this._line = l;
   },
-  getLine(){
+  getLine() {
     return this._line;
+  },
+  // 检测车辆在哪一侧
+  whichSide(){
+
   }
 });

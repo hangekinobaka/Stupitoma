@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3035487210987632,
-      "y": 0.3035487210987632,
+      "x": 0.3535710124254693,
+      "y": 0.3535710124254693,
       "z": 1
     },
     "_quat": {
@@ -140,7 +140,7 @@
   {
     "__type__": "cc.Node",
     "_name": "Main Camera",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 2
     },
@@ -206,7 +206,7 @@
       "__id__": 3
     },
     "_enabled": true,
-    "_cullingMask": 4294967295,
+    "_cullingMask": -1,
     "_clearFlags": 7,
     "_backgroundColor": {
       "__type__": "cc.Color",
@@ -380,6 +380,9 @@
     "carPrefabs": [
       {
         "__uuid__": "1ca10e8c-7af2-4ad5-aab0-50e2b22121a3"
+      },
+      {
+        "__uuid__": "b30c46f1-1fdb-4166-b67a-6ad2c7854c0f"
       }
     ],
     "playground": {
@@ -664,7 +667,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "groupIndex": 0,
+    "groupIndex": 3,
     "_id": "512S3EDGZGE5m76AjO0Ris"
   },
   {
@@ -752,7 +755,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "groupIndex": 0,
+    "groupIndex": 4,
     "_id": "bdAihzWVdOR60vju5aUO4z"
   },
   {

@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "car1-go-right",
+  "_name": "roll-wheel",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.8,
@@ -9,7 +9,7 @@
   "wrapMode": "2",
   "curveData": {
     "paths": {
-      "wheel": {
+      "wheels/wheel": {
         "props": {
           "rotation": [
             {
@@ -33,9 +33,10 @@
               "value": 360
             }
           ]
-        }
+        },
+        "comps": {}
       },
-      "wheel1": {
+      "wheels/wheel1": {
         "props": {
           "rotation": [
             {

@@ -1,3 +1,4 @@
+require('global')
 cc.Class({
   extends: cc.Component,
 

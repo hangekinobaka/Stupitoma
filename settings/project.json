@@ -11,6 +11,30 @@
     [
       false,
       true,
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      true,
+      false,
+      false,
       false
     ]
   ],
@@ -32,9 +56,12 @@
   "group-list": [
     "default",
     "toma",
-    "car"
+    "car",
+    "left",
+    "right",
+    "middle"
   ],
-  "last-module-event-record-time": 0,
+  "last-module-event-record-time": 1554102881483,
   "simulator-orientation": false,
   "simulator-resolution": {
     "height": 640,
