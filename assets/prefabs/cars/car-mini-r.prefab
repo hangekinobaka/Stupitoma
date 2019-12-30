@@ -126,7 +126,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 3,
       "z": 0
     },
     "_scale": {
@@ -471,20 +471,6 @@
     "_id": ""
   },
   {
-    "__type__": "5b78eEgP3pCoqIvrKr/Xlrm",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "direction": 0,
-    "speed": 100,
-    "carName": "car1",
-    "_line": "",
-    "_id": ""
-  },
-  {
     "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
@@ -503,6 +489,21 @@
       "width": 260,
       "height": 90
     },
+    "_id": ""
+  },
+  {
+    "__type__": "f32499iRMVF1qQsjUsWexdr",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "direction": 0,
+    "speed": 100,
+    "carName": "mini-r",
+    "_line": "",
+    "_side": null,
     "_id": ""
   },
   {

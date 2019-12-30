@@ -21,7 +21,7 @@ cc.Class({
     return undefined
   },
   spawn(prefab, compType, spawnPos, parent,generator=null) {
-    let comp = this._pool.get(compType);;
+    let comp = this._pool.get(compType);
     if(generator===null){
       if (!comp) {
         // console.log('新建对象')
