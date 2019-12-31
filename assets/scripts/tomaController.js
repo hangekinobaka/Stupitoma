@@ -15,9 +15,15 @@ cc.Class({
       default: false,
       tooltip: '是否检测碰撞'
     },
+    mask:  {
+      default: false,
+      tooltip: '是否打开视觉障碍'
+    },
     speed: 10,
     touchLeft: cc.Node,
     touchRight: cc.Node,
+    maskLeft: cc.Node,
+    maskRight: cc.Node,
 
     state: {
       default: State.None,
@@ -35,6 +41,13 @@ cc.Class({
     var manager = cc.director.getCollisionManager();
     // 默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统
     manager.enabled = this.collision;
+
+    this.maskLeftAnim = this.maskLeft.getComponent(cc.Animation);
+    this.maskRightAnim = this.maskRight.getComponent(cc.Animation);
+    if(this.mask){
+      this.maskLeftAnim.play("fadein")
+      this.maskRightAnim.play("fadein")
+    }
     // 首次初始化
     this.init();
   },
@@ -88,6 +101,9 @@ cc.Class({
   walk() {
     this.setState(State.Walk)
     this.anim.play('toma-go-middle');
+
+    // mask control
+    this.toggleMask(-1)
   },
   // 转向动作
   turnLeft() {
@@ -95,13 +111,45 @@ cc.Class({
       this.setState(State.LeftWatch);
       this.anim.play('toma-turn-left');
     }
+
+    // mask control
+    this.toggleMask(0)
   },
   turnRight() {
     if (this.state !== State.RightWatch) {
       this.setState(State.RightWatch);
       this.anim.play('toma-turn-right');
     }
+
+    // mask control
+    this.toggleMask(1)
   },
+  // 显示和隐藏mask动作
+  toggleMask(dir){
+    // dir 1 右边 0 左边 -1 全部隐藏 2 全部显示
+    if(this.mask){
+      switch(dir){
+        case 1:
+          this.maskLeft.opacity = 255;
+          this.maskRight.opacity = 0;
+          break;
+        case 0:
+          this.maskRight.opacity = 255;
+          this.maskLeft.opacity = 0;
+          break;
+        case -1:
+          this.maskLeft.opacity = 255;
+          this.maskRight.opacity = 255;
+          break;
+        case 2:
+        default:
+          this.maskLeft.opacity = 0;
+          this.maskRight.opacity = 0;
+          break;
+      }
+    }
+  },
+
   // 注册屏幕左右touch事件
   registerTouch() {
     // 键盘事件
@@ -171,6 +219,9 @@ cc.Class({
     this.node.emit('tomaBack')
   },
   die(dir){
+    // mask control
+    this.toggleMask(2)
+
     const animName = `toma-${dir}die`
     this.state = State.Dead;
     this.anim.play(animName);

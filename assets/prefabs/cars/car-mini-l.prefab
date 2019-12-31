@@ -710,7 +710,7 @@
     },
     "_enabled": true,
     "direction": 1,
-    "speed": 120,
+    "speed": 220,
     "carName": "mini-l",
     "_line": "",
     "_side": null,

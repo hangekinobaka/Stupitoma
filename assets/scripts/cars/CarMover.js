@@ -21,10 +21,10 @@ const Car = cc.Class({
     D.Car = Car;
     this.anim = this.getComponent(cc.Animation);
     this.yMin = this.node.getBoundingBoxToWorld().yMin + 20;
-    // 获取碰撞检测系统
-    var manager = cc.director.getCollisionManager();
-    // 默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统
-    manager.enabled = true;
+    // // 获取碰撞检测系统
+    // var manager = cc.director.getCollisionManager();
+    // // 默认碰撞检测系统是禁用的，如果需要使用则需要以下方法开启碰撞检测系统
+    // manager.enabled = true;
 
     // 计算轮子转速
     const wheelSpeed = this.speed / 100

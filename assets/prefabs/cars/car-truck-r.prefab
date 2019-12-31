@@ -652,7 +652,7 @@
     },
     "_enabled": true,
     "direction": 0,
-    "speed": 100,
+    "speed": 200,
     "carName": "truck",
     "_line": "",
     "_side": null,

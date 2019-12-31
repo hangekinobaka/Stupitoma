@@ -631,7 +631,7 @@
     },
     "_enabled": true,
     "direction": 0,
-    "speed": 220,
+    "speed": 320,
     "carName": "run-r",
     "_line": "",
     "_side": null,
