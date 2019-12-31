@@ -406,7 +406,7 @@
     "playground": {
       "__id__": 10
     },
-    "spawnInterval": 3.5,
+    "spawnInterval": 1.05,
     "_cars": [],
     "_lineNum": 2,
     "_id": "07cXrDmsBIWbUGWBCFeckk"
@@ -620,7 +620,7 @@
     "_enabled": true,
     "collision": true,
     "mask": true,
-    "speed": 150,
+    "speed": 300,
     "touchLeft": {
       "__id__": 15
     },

@@ -54,7 +54,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 1,
       "y": 0.65
     },
     "_position": {
@@ -131,7 +131,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -156,
       "y": -22,
       "z": 0
     },
@@ -631,7 +631,7 @@
     },
     "_enabled": true,
     "direction": 1,
-    "speed": 320,
+    "speed": 500,
     "carName": "run-l",
     "_line": "",
     "_side": null,
@@ -648,13 +648,13 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": -2,
+      "x": -151,
       "y": -14
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 283,
-      "height": 54
+      "width": 284,
+      "height": 51
     },
     "_id": ""
   },

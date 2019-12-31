@@ -54,7 +54,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 1,
       "y": 0.5
     },
     "_position": {
@@ -131,7 +131,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 56,
+      "x": -254,
       "y": -69,
       "z": 0
     },
@@ -633,8 +633,8 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 80,
-      "y": -4
+      "x": -230,
+      "y": -7
     },
     "_size": {
       "__type__": "cc.Size",
@@ -652,7 +652,7 @@
     },
     "_enabled": true,
     "direction": 0,
-    "speed": 200,
+    "speed": 380,
     "carName": "truck",
     "_line": "",
     "_side": null,

@@ -691,12 +691,12 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": -145,
+      "x": -137,
       "y": -32
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 287,
+      "width": 271,
       "height": 75
     },
     "_id": ""
@@ -710,7 +710,7 @@
     },
     "_enabled": true,
     "direction": 1,
-    "speed": 220,
+    "speed": 400,
     "carName": "mini-l",
     "_line": "",
     "_side": null,
