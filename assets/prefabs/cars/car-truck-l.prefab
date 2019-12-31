@@ -12,18 +12,12 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "car-run-r",
+    "_name": "car-truck-l",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
       {
         "__id__": 2
-      },
-      {
-        "__id__": 10
-      },
-      {
-        "__id__": 13
       }
     ],
     "_active": true,
@@ -55,24 +49,24 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 302,
-      "height": 137
+      "width": 620,
+      "height": 340
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.65
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 664,
-      "y": 300,
+      "x": 590,
+      "y": 362,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": -1,
-      "y": 1,
+      "x": 0.6,
+      "y": 0.6,
       "z": 1
     },
     "_rotationX": 0,
@@ -103,13 +97,19 @@
       },
       {
         "__id__": 6
+      },
+      {
+        "__id__": 9
+      },
+      {
+        "__id__": 12
       }
     ],
     "_active": true,
     "_level": 2,
     "_components": [],
     "_prefab": {
-      "__id__": 9
+      "__id__": 15
     },
     "_opacity": 255,
     "_color": {
@@ -131,14 +131,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": -22,
+      "x": 56,
+      "y": -69,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 1.8,
+      "y": 1.8,
       "z": 1
     },
     "_rotationX": 0,
@@ -194,7 +194,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -92,
+      "x": -70,
       "y": -6,
       "z": 0
     },
@@ -253,9 +253,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "ba6cfc44-d41e-4273-aba6-1493ac9e1e98"
+      "__uuid__": "0a780ed5-993d-4fa5-813e-08feb6c7fb64"
     },
-    "fileId": "2dGYEOXDRLjqLTisYEQm2n",
+    "fileId": "8f0T3JjgJFTrAc6XXo4NFn",
     "sync": false
   },
   {
@@ -296,7 +296,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 102,
+      "x": 76,
       "y": -6,
       "z": 0
     },
@@ -355,20 +355,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "ba6cfc44-d41e-4273-aba6-1493ac9e1e98"
+      "__uuid__": "0a780ed5-993d-4fa5-813e-08feb6c7fb64"
     },
-    "fileId": "24n8XLpjdEK6wgRowiAsw8",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "ba6cfc44-d41e-4273-aba6-1493ac9e1e98"
-    },
-    "fileId": "c1tGBQdz1NUKIjEg2z8TyR",
+    "fileId": "0aKxG3a21Cr4XZ6eOcLI5f",
     "sync": false
   },
   {
@@ -376,71 +365,173 @@
     "_name": "wheel-light",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 1
+      "__id__": 2
     },
     "_children": [],
     "_active": true,
-    "_level": 2,
+    "_level": 3,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 10
       }
     ],
     "_prefab": {
+      "__id__": 11
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 52,
+      "height": 49
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": -55,
+      "y": 10,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 0.5263158,
+      "y": 0.5263158,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_zIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 9
+    },
+    "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "2a4bcc37-ba58-4097-85ce-d4944bb2bf7e"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_state": 0,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "0a780ed5-993d-4fa5-813e-08feb6c7fb64"
+    },
+    "fileId": "58vEZUlptLIKPnpKqaB7lw",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "wheel-light",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 3,
+    "_components": [
+      {
+        "__id__": 13
+      }
+    ],
+    "_prefab": {
+      "__id__": 14
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 52,
+      "height": 49
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 92,
+      "y": 8,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 0.5263158,
+      "y": 0.5263158,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_zIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
       "__id__": 12
     },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 52,
-      "height": 49
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": -104.8,
-      "y": -19.9,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": -1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_zIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 10
-    },
     "_enabled": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
@@ -468,101 +559,10 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "ba6cfc44-d41e-4273-aba6-1493ac9e1e98"
+      "__uuid__": "0a780ed5-993d-4fa5-813e-08feb6c7fb64"
     },
-    "fileId": "bflOA6IDZP6b85pTBHnAY7",
+    "fileId": "9d3dXMnF1JpLkhotdwMgQm",
     "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "wheel-light",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [],
-    "_active": true,
-    "_level": 2,
-    "_components": [
-      {
-        "__id__": 14
-      }
-    ],
-    "_prefab": {
-      "__id__": 15
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 52,
-      "height": 49
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 88,
-      "y": -19.9,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": -1,
-      "y": 1,
-      "z": 1
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_zIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 13
-    },
-    "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "2a4bcc37-ba58-4097-85ce-d4944bb2bf7e"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_state": 0,
-    "_atlas": null,
-    "_id": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -570,9 +570,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "ba6cfc44-d41e-4273-aba6-1493ac9e1e98"
+      "__uuid__": "0a780ed5-993d-4fa5-813e-08feb6c7fb64"
     },
-    "fileId": "delHAAeORLy7oDaiays5tS",
+    "fileId": "04WsNSct1K468dkagx6rzX",
     "sync": false
   },
   {
@@ -586,10 +586,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "48d92569-426e-4ae3-9a62-12ac7fe87ec2"
+      "__uuid__": "ae62f625-5529-4d88-89f0-942307154b33"
     },
     "_type": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -623,21 +623,6 @@
     "_id": ""
   },
   {
-    "__type__": "29ab3YF10dL7JLuRIUTxMGf",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "direction": 0,
-    "speed": 220,
-    "carName": "run-r",
-    "_line": "",
-    "_side": null,
-    "_id": ""
-  },
-  {
     "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
@@ -648,14 +633,29 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -20
+      "x": 80,
+      "y": -4
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 288,
-      "height": 45
+      "width": 441,
+      "height": 132
     },
+    "_id": ""
+  },
+  {
+    "__type__": "c1169eiNv9EkbW7nkOvzJxM",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "direction": 1,
+    "speed": 100,
+    "carName": "truck",
+    "_line": "",
+    "_side": null,
     "_id": ""
   },
   {
@@ -664,9 +664,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "ba6cfc44-d41e-4273-aba6-1493ac9e1e98"
+      "__uuid__": "0a780ed5-993d-4fa5-813e-08feb6c7fb64"
     },
-    "fileId": "3aIrjhQhJEFLQTJoB62GgK",
+    "fileId": "0ctlLeJ3pDObcTtAW4fwY/",
     "sync": false
   }
 ]

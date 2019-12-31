@@ -60,7 +60,7 @@ const Car = cc.Class({
     this.node.active = true;
 
     this.tomaPassed = false;
-    this.node.zIndex = 1;
+    this.node.zIndex = 5-this._line;
 
     this.registerEvent();
   },
@@ -71,14 +71,14 @@ const Car = cc.Class({
   ifTomaHasPassed() {
     if (this.yMin < D.toma.node.getBoundingBoxToWorld().yMin) {
       this.tomaPassed = true;
-      this.node.zIndex = 100;
+      this.node.zIndex = this.node.zIndex+100;
     }
   },
   registerEvent() {
     // 添加toma是否回来的事件捕捉
     D.toma.node.on('tomaBack', () => {
       this.tomaPassed = false;
-      this.node.zIndex = 1;
+      this.node.zIndex = 5-this._line;
     }, this)
   },
   cancelListener() {

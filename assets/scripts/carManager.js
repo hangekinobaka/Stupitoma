@@ -1,5 +1,6 @@
 const mini = require('./cars/carMini')
 const run = require('./cars/carRun')
+const truck = require('./cars/carTruck')
 
 
 cc.Class({
@@ -14,63 +15,73 @@ cc.Class({
   },
   onLoad(){
     D.carManager = this;
-    this._lineNum = 4 // Has to be inited here, don't know why
+    // Has to be inited here, don't know why
+    this._lineNum = 4
+
+    for(let i=0; i<this._lineNum; i++){
+      const newArr = new Array()
+      this._cars.push(newArr)
+      this.randPick(i+1)
+      this.randPick(i+1)
+    }
   },
   start(){
     for(let i=0; i<this._lineNum; i++){
-      this.randPick(i%2)
+      setTimeout(() => {
+        this.spawnCar(i+1);
+        this.schedule(()=>this.spawnCar(i+1), this.spawnInterval);
+      }, 300 * i);
     }
-    this.spawnCar();
-    this.schedule(this.spawnCar, this.spawnInterval);
+
   },
 
   destroyCar(car,line){
     D.carPool['l'+line].despawn(car)
   },
-  spawnCar(){
-    for(let i=0; i<this._lineNum; i++){
-      this.randPick(i%2)
-    }
-    if(!(this._cars[0].comp===mini && this._cars[0+this._lineNum].comp===run)){
-      D.carPool['l1'].spawnCar(this._cars[0].prefab,this._cars[0].comp,cc.v2(0,200),this.playground,1)
-    }
-
-    if(!(this._cars[1].comp===mini && this._cars[1+this._lineNum].comp===run)){
-      D.carPool['l2'].spawnCar(this._cars[1].prefab,this._cars[1].comp,cc.v2(D.windowSize.width+this.node.width/2,360),this.playground,2)
-    }
-
-    if(!(this._cars[2].comp===mini && this._cars[2+this._lineNum].comp===run)){
-      D.carPool['l3'].spawnCar(this._cars[2].prefab,this._cars[2].comp,cc.v2(0,520),this.playground,2)
+  spawnCar(line){
+    this.randPick(line)
+    // run cannot follow other cars rather than run
+    // truck cannot be followed by other cars rather than truck
+    if(!(this._cars[line-1][1].comp!==run && this._cars[line-1][2].comp===run)){
+      if(!(this._cars[line-1][0].comp===truck && this._cars[line-1][1].comp!==truck)){
+        D.carPool['l'+line].spawnCar(this._cars[line-1][1].prefab,this._cars[line-1][1].comp,
+          (line%2) ? cc.v2(D.windowSize.width+this.node.width/2,200+160*(line-1)) : cc.v2(0,200+160*(line-1)), // start from different side
+          this.playground,line)
+      }
     }
 
-    if(!(this._cars[3].comp===mini && this._cars[3+this._lineNum].comp===run)){
-      D.carPool['l4'].spawnCar(this._cars[3].prefab,this._cars[3].comp,cc.v2(D.windowSize.width+this.node.width/2,680),this.playground,2)
-    }
-
-    this._cars.splice(0,this._lineNum)
+    this._cars[line-1].shift();
   },
   // Randomlly pick up a car type from the prefab
-  randPick(dir){
+  randPick(line){
     const num = Math.floor((Math.random()*10)+1);
     let car = {};
-    if(num <= 7){
-      if(dir===0){
+    if(num <= 6){
+      if(line%2===0){
         car.prefab = this.carPrefabs[0];
         car.comp = mini;
       }else{
         car.prefab = this.carPrefabs[1];
         car.comp = mini;
       }
-    }else{
-      if(dir===0){
+    }else if(num <= 8){
+      if(line%2===0){
         car.prefab = this.carPrefabs[2];
         car.comp = run;
       }else{
         car.prefab = this.carPrefabs[3];
         car.comp = run;
       }
+    }else{
+      if(line%2===0){
+        car.prefab = this.carPrefabs[4];
+        car.comp = truck;
+      }else{
+        car.prefab = this.carPrefabs[5];
+        car.comp = truck;
+      }
     }
 
-    this._cars.push(car)
+    this._cars[line-1].push(car)
   }
 });

@@ -8,7 +8,7 @@ cc.Class({
     // new Pool
     this._pool = new cc.js.Pool((obj) => {
 
-    }, 3);
+    }, 5);
 
     // 分配pool.get
     this._pool.get = this.get
