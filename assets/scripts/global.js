@@ -1,4 +1,5 @@
 window.D = {
+  game:null,
   toma:null,
   carPool:{
     l1:null,

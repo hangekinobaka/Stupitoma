@@ -44,10 +44,7 @@ cc.Class({
 
     this.maskLeftAnim = this.maskLeft.getComponent(cc.Animation);
     this.maskRightAnim = this.maskRight.getComponent(cc.Animation);
-    if(this.mask){
-      this.maskLeftAnim.play("fadein")
-      this.maskRightAnim.play("fadein")
-    }
+
     // 首次初始化
     this.init();
   },
@@ -68,31 +65,39 @@ cc.Class({
   },
   // 当碰撞产生的时候调用
   onCollisionEnter: function (other, self) {
-    if (this.state !== State.Dead) {
-      const group = cc.game.groupList[other.node.groupIndex];
-      switch (group) {
-        case 'car':
-          // bump
-          // 获取肇事车辆脚本组件
-          const otherCar = other.getComponent(carType)
-          // if(otherCar.tomaPassed){
-          //   this.die();
-          // }
-          if(otherCar.direction === D.Car.Dir.Right)
-            this.die('l');
-          else
-            this.die('r')
 
-          // D.game.gameOver();
+    const group = cc.game.groupList[other.node.groupIndex];
+    switch (group) {
+      case 'car':
+        // bump
+        // 获取肇事车辆脚本组件
+        const otherCar = other.getComponent(carType)
+        if(this.state === State.Dead){
+          setTimeout(() => {
+            this.anim.play('toma-die-after')
+          }, 300);
           break;
-        default:
-          break;
-      }
+        }
+        if(otherCar.direction === D.Car.Dir.Right)
+          this.die('l');
+        else
+          this.die('r')
+
+        D.game.gameOver();
+        break;
+      default:
+        break;
     }
   },
 
   // toma的初始化
   init() {
+    if(this.mask){
+      this.maskLeftAnim.play("fadein")
+      this.maskRightAnim.play("fadein")
+    }
+
+    this.anim.play('toma-idle');
     this.node.zIndex = 10;
     this.registerTouch();
     this.goBack()
