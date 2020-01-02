@@ -30,6 +30,8 @@ cc.Class({
     this._schedulers.forEach(func => {
       this.unschedule(func)
     });
+    this._schedulers = []
+
     const list = [...this.playground.children]
     list.forEach(c => {
       if(c.name.substr(0,3) === 'car'){

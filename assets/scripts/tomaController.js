@@ -29,7 +29,9 @@ cc.Class({
       default: State.None,
       type: State,
       visible: false
-    }
+    },
+    _actionInPlan: null,
+    _died:false,
   },
   onLoad(){
     D.toma = this;
@@ -73,9 +75,11 @@ cc.Class({
         // 获取肇事车辆脚本组件
         const otherCar = other.getComponent(carType)
         if(this.state === State.Dead){
-          setTimeout(() => {
-            this.anim.play('toma-die-after')
-          }, 300);
+          if(this._died){
+            this._actionInPlan =  setTimeout(() => {
+              this.anim.play('toma-die-after')
+            }, 300);
+          }
           break;
         }
         if(otherCar.direction === D.Car.Dir.Right)
@@ -92,11 +96,17 @@ cc.Class({
 
   // toma的初始化
   init() {
+    if(this._actionInPlan){
+      clearTimeout(this._actionInPlan)
+    }
+    this._actionInPlan = null;
+
     if(this.mask){
       this.maskLeftAnim.play("fadein")
       this.maskRightAnim.play("fadein")
     }
 
+    this._died = false;
     this.anim.play('toma-idle');
     this.node.zIndex = 10;
     this.registerTouch();
@@ -233,6 +243,7 @@ cc.Class({
     this.cancelTouch();
   },
   onDieOver(){
+    this._died = true;
     this.node.zIndex = 1;
   }
 });
