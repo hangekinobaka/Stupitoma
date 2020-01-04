@@ -24,6 +24,7 @@ cc.Class({
     touchRight: cc.Node,
     maskLeft: cc.Node,
     maskRight: cc.Node,
+    counterLabel:cc.Node,
 
     state: {
       default: State.None,
@@ -37,6 +38,7 @@ cc.Class({
     D.toma = this;
   },
   start() {
+    this._counter = this.counterLabel.getComponent(cc.Label)
     this.anim = this.getComponent(cc.Animation);
     this.node.zIndex = 10;
     // 获取碰撞检测系统
@@ -46,6 +48,9 @@ cc.Class({
 
     this.maskLeftAnim = this.maskLeft.getComponent(cc.Animation);
     this.maskRightAnim = this.maskRight.getComponent(cc.Animation);
+
+    this._normalCollider = this.getComponents(cc.Collider)[0]
+    this._dieCollider = this.getComponents(cc.Collider)[1]
 
     // 首次初始化
     this.init();
@@ -62,6 +67,7 @@ cc.Class({
     }
 
     if(this.node.getBoundingBoxToWorld().yMin > D.windowSize.height){
+      this.setPoint();
       this.goBack();
     }
   },
@@ -111,6 +117,10 @@ cc.Class({
     this.node.zIndex = 10;
     this.registerTouch();
     this.goBack()
+    this.setPoint(true)
+
+    this._normalCollider.enabled = true
+    this._dieCollider.enabled = false
   },
   // 前进动作
   walk() {
@@ -233,6 +243,11 @@ cc.Class({
     this.node.y = 0
     this.node.emit('tomaBack')
   },
+  setPoint(reset=false){
+    if(reset) D.score = 0;
+    else D.score++;
+    this._counter.string = "Score: " + D.score;
+  },
   die(dir){
     // mask control
     this.toggleMask(2)
@@ -241,6 +256,9 @@ cc.Class({
     this.state = State.Dead;
     this.anim.play(animName);
     this.cancelTouch();
+
+    this._normalCollider.enabled = false
+    this._dieCollider.enabled = true
   },
   onDieOver(){
     this._died = true;

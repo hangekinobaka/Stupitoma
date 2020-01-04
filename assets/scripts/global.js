@@ -10,4 +10,5 @@ window.D = {
   windowSize: null,
   carManager: null,
   Car: null,
+  score:0,
 }
