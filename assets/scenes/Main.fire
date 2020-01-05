@@ -56,8 +56,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.33064583333333336,
-      "y": 0.33064583333333336,
+      "x": 2.063879335972807,
+      "y": 2.063879335972807,
       "z": 1
     },
     "_quat": {
@@ -1111,8 +1111,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 100
+      "width": 160,
+      "height": 160
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1157,7 +1157,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1c9c70ae-38b0-4f5c-8070-6f7f55be06b6"
+      "__uuid__": "3df0f62e-8a94-4eaa-b07b-b4728477a5fb"
     },
     "_type": 0,
     "_sizeMode": 2,
@@ -1874,82 +1874,25 @@
     "_id": "90hiJMREVNj7HE3xMtYlmG"
   },
   {
-    "__type__": "cc.PolygonCollider",
+    "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 26
     },
     "_enabled": true,
-    "tag": 1,
+    "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -0.9,
+      "y": 41.6
     },
-    "points": [
-      {
-        "__type__": "cc.Vec2",
-        "x": -71.6,
-        "y": 31.5
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -29.7,
-        "y": 10.4
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -0.4,
-        "y": 6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 30.4,
-        "y": 10
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 66.7,
-        "y": 28
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 73.4,
-        "y": 38
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 65.9,
-        "y": 55.1
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 34.1,
-        "y": 74.8
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 5.8,
-        "y": 79.4
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -20.2,
-        "y": 76.9
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -52.9,
-        "y": 63
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -74.1,
-        "y": 48.7
-      }
-    ],
-    "_id": "8cLYzeltlNAohPgjtO5U3H"
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 145.7,
+      "height": 36.7
+    },
+    "_id": "eaGMUUdG1EoY5YzQCltH62"
   },
   {
     "__type__": "cc.PrefabInfo",

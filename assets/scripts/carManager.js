@@ -53,6 +53,7 @@ cc.Class({
     }
     // Schedule the car spawn
     for(let i=0; i<this._lineNum; i++){
+      this.spawnFirstCar(i+1)
       setTimeout(() => {
         this.spawnCar(i+1);
         const func = ()=>this.spawnCar(i+1)
@@ -64,6 +65,16 @@ cc.Class({
 
   destroyCar(car,line){
     D.carPool['l'+line].despawn(car)
+  },
+  spawnFirstCar(line){
+    this.randPick(line)
+
+    const car = this._cars[line-1][0]
+    D.carPool['l'+line].spawnCar(car.prefab,car.comp,
+      (line%2) ? cc.v2(D.windowSize.width/2+this.node.width/2,200+160*(line-1)) : cc.v2(D.windowSize.width/2-this.node.width/2,200+160*(line-1)),
+      this.playground,line)
+
+    this._cars[line-1].shift();
   },
   spawnCar(line){
     this.randPick(line)
