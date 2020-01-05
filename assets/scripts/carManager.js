@@ -71,7 +71,7 @@ cc.Class({
 
     const car = this._cars[line-1][0]
     D.carPool['l'+line].spawnCar(car.prefab,car.comp,
-      (line%2) ? cc.v2(D.windowSize.width/2+this.node.width/2,200+160*(line-1)) : cc.v2(D.windowSize.width/2-this.node.width/2,200+160*(line-1)),
+      (line%2) ? cc.v2(D.windowSize.width/2+this.node.width+100,200+160*(line-1)) : cc.v2(D.windowSize.width/2-this.node.width-100,200+160*(line-1)),
       this.playground,line)
 
     this._cars[line-1].shift();

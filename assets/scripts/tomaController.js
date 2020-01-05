@@ -31,8 +31,11 @@ cc.Class({
       type: State,
       visible: false
     },
+    playgrounds:[cc.Node],
+    _curPlayground:0,
     _actionInPlan: null,
     _died:false,
+    _invincible:false
   },
   onLoad(){
     D.toma = this;
@@ -49,10 +52,16 @@ cc.Class({
     this.maskLeftAnim = this.maskLeft.getComponent(cc.Animation);
     this.maskRightAnim = this.maskRight.getComponent(cc.Animation);
 
+    this._playgroundAnim = []
+    this._playgroundAnim.push(this.playgrounds[0].getComponent(cc.Animation))
+    this._playgroundAnim.push(this.playgrounds[1].getComponent(cc.Animation))
+
     this._normalCollider = this.getComponents(cc.Collider)[0]
     this._dieCollider = this.getComponents(cc.Collider)[1]
 
     // 首次初始化
+    this._curPlayground = 0;
+    this._invincible = false;
     this.init();
   },
   update(dt) {
@@ -66,7 +75,7 @@ cc.Class({
         break;
     }
 
-    if(this.node.getBoundingBoxToWorld().yMin > D.windowSize.height){
+    if(this.node.getBoundingBox().yMin > D.windowSize.height){
       this.setPoint();
       this.goBack();
     }
@@ -77,23 +86,25 @@ cc.Class({
     const group = cc.game.groupList[other.node.groupIndex];
     switch (group) {
       case 'car':
-        // bump
-        // 获取肇事车辆脚本组件
-        const otherCar = other.getComponent(carType)
-        if(this.state === State.Dead){
-          if(this._died){
-            this._actionInPlan =  setTimeout(() => {
-              this.anim.play('toma-die-after')
-            }, 300);
+        if(!this._invincible){
+          // bump
+          // 获取肇事车辆脚本组件
+          const otherCar = other.getComponent(carType)
+          if(this.state === State.Dead){
+            if(this._died){
+              this._actionInPlan =  setTimeout(() => {
+                this.anim.play('toma-die-after')
+              }, 300);
+            }
+            break;
           }
-          break;
-        }
-        if(otherCar.direction === D.Car.Dir.Right)
-          this.die('l');
-        else
-          this.die('r')
+          if(otherCar.direction === D.Car.Dir.Right)
+            this.die('l');
+          else
+            this.die('r')
 
-        D.game.gameOver();
+          D.game.gameOver();
+        }
         break;
       default:
         break;
@@ -102,6 +113,12 @@ cc.Class({
 
   // toma的初始化
   init() {
+    this.registerTouch();
+
+    if(this.state === State.Dead) {
+      this.setPoint(true)
+    }
+
     if(this._actionInPlan){
       clearTimeout(this._actionInPlan)
     }
@@ -113,15 +130,14 @@ cc.Class({
     }
 
     this._died = false;
-    this.anim.play('toma-idle');
     this.node.zIndex = 10;
-    this.registerTouch();
-    this.goBack()
-    this.setPoint(true)
+    this.stay();
+    this.goBack(true)
 
     this._normalCollider.enabled = true
     this._dieCollider.enabled = false
   },
+
   // 前进动作
   walk() {
     this.setState(State.Walk)
@@ -129,6 +145,11 @@ cc.Class({
 
     // mask control
     this.toggleMask(-1)
+  },
+  // Stop and stay
+  stay() {
+    this.setState(State.None)
+    this.anim.play('toma-idle');
   },
   // 转向动作
   turnLeft() {
@@ -239,8 +260,19 @@ cc.Class({
       this.state = val;
     }
   },
-  goBack(){
+  goBack(init = false){
+    if(!init){
+      this._invincible = true;
+      const pre = this._curPlayground
+      this._curPlayground = this._curPlayground ? 0 : 1;
+      this._playgroundAnim[this._curPlayground].play('bg-slide-in')
+      this._playgroundAnim[pre].play('bg-slide-out')
+    }
+    this.node.parent = this.playgrounds[this._curPlayground]
+
     this.node.y = 0
+    this.stay();
+
     this.node.emit('tomaBack')
   },
   setPoint(reset=false){
