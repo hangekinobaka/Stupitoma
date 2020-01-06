@@ -195,37 +195,38 @@ cc.Class({
       }
     }
   },
-
+  _keyDownHandler(e){
+    switch (e.keyCode) {
+      case cc.macro.KEY.left:
+        this.turnLeft()
+        break;
+      case cc.macro.KEY.right:
+        this.turnRight()
+        break;
+      default:
+        break
+    }
+  },
+  _keyUpHandler(e){
+    switch (e.keyCode) {
+      case cc.macro.KEY.left:
+        if (this.state === State.LeftWatch)
+          this.walk();
+        break;
+      case cc.macro.KEY.right:
+        if (this.state === State.RightWatch)
+          this.walk();
+        break;
+      default:
+        this.walk();
+        break
+    }
+  },
   // 注册屏幕左右touch事件
   registerTouch() {
     // 键盘事件
-    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, (e) => {
-      switch (e.keyCode) {
-        case cc.macro.KEY.left:
-          this.turnLeft()
-          break;
-        case cc.macro.KEY.right:
-          this.turnRight()
-          break;
-        default:
-          break
-      }
-    }, this.node);
-    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, (e) => {
-      switch (e.keyCode) {
-        case cc.macro.KEY.left:
-          if (this.state === State.LeftWatch)
-            this.walk();
-          break;
-        case cc.macro.KEY.right:
-          if (this.state === State.RightWatch)
-            this.walk();
-          break;
-        default:
-          this.walk();
-          break
-      }
-    }, this.node);
+    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this._keyDownHandler, this);
+    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this._keyUpHandler, this);
 
     // touch 事件
     this.touchLeft.on(cc.Node.EventType.TOUCH_START, () => {
@@ -246,8 +247,8 @@ cc.Class({
   // 取消屏幕左右touch事件
   cancelTouch() {
     // 键盘事件
-    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN);
-    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP);
+    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this._keyDownHandler,this); // 参数需要和on一一对应 *目前仍然会出现重复注册警告*
+    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP,this._keyUpHandler, this);
 
     // touch 事件
     this.touchLeft.off(cc.Node.EventType.TOUCH_START);

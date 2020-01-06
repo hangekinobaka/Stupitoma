@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.22973967099940665,
-      "y": 0.22973967099940665,
+      "x": 0.331375,
+      "y": 0.331375,
       "z": 1
     },
     "_quat": {
@@ -100,7 +100,7 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 68
+        "__id__": 70
       }
     ],
     "_prefab": null,
@@ -1022,7 +1022,10 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 67
+        "__id__": 68
+      },
+      {
+        "__id__": 69
       }
     ],
     "_prefab": null,
@@ -1425,17 +1428,17 @@
         "__id__": 37
       },
       {
-        "__id__": 63
-      },
-      {
         "__id__": 64
       },
       {
         "__id__": 65
+      },
+      {
+        "__id__": 66
       }
     ],
     "_prefab": {
-      "__id__": 66
+      "__id__": 67
     },
     "_opacity": 255,
     "_color": {
@@ -1585,6 +1588,7 @@
     "_curPlayground": 0,
     "_actionInPlan": null,
     "_died": false,
+    "_invincible": false,
     "_id": "05LclF6BJEtaCOTOUluYkf"
   },
   {
@@ -2187,6 +2191,9 @@
     "_components": [
       {
         "__id__": 62
+      },
+      {
+        "__id__": 63
       }
     ],
     "_prefab": null,
@@ -2596,6 +2603,26 @@
     "_id": "f703JpOyRFCL9lRzuADh85"
   },
   {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 53
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [
+      {
+        "__uuid__": "033cdc1a-b118-4846-888b-339555d6b484"
+      },
+      {
+        "__uuid__": "42a92842-8d7d-434b-9467-5145aff79ac5"
+      }
+    ],
+    "playOnLoad": false,
+    "_id": "a8b68JixtDh5Y8XbYfivz0"
+  },
+  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -2701,6 +2728,26 @@
     "_originalWidth": 1350,
     "_originalHeight": 750,
     "_id": "efXgNmKklIhrep+5yYN/5n"
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 25
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [
+      {
+        "__uuid__": "033cdc1a-b118-4846-888b-339555d6b484"
+      },
+      {
+        "__uuid__": "42a92842-8d7d-434b-9467-5145aff79ac5"
+      }
+    ],
+    "playOnLoad": false,
+    "_id": "5cs7XwiWFGMJyNSHNmdyZr"
   },
   {
     "__type__": "cc.Canvas",
