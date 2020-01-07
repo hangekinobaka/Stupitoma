@@ -31,8 +31,6 @@ cc.Class({
       type: State,
       visible: false
     },
-    playgrounds:[cc.Node],
-    _curPlayground:0,
     _actionInPlan: null,
     _died:false,
     _invincible:false
@@ -53,14 +51,14 @@ cc.Class({
     this.maskRightAnim = this.maskRight.getComponent(cc.Animation);
 
     this._playgroundAnim = []
-    this._playgroundAnim.push(this.playgrounds[0].getComponent(cc.Animation))
-    this._playgroundAnim.push(this.playgrounds[1].getComponent(cc.Animation))
+    this._playgroundAnim.push(D.playgrounds[0].getComponent(cc.Animation))
+    this._playgroundAnim.push(D.playgrounds[1].getComponent(cc.Animation))
 
     this._normalCollider = this.getComponents(cc.Collider)[0]
     this._dieCollider = this.getComponents(cc.Collider)[1]
 
     // 首次初始化
-    this._curPlayground = 0;
+    D.curPlayground = 0;
     this._invincible = false;
     this.init();
   },
@@ -79,6 +77,10 @@ cc.Class({
       this.setPoint();
       this.goBack();
     }
+  },
+
+  onDestroy(){
+    this.cancelTouch()
   },
   // 当碰撞产生的时候调用
   onCollisionEnter: function (other, self) {
@@ -264,12 +266,13 @@ cc.Class({
   goBack(init = false){
     if(!init){
       this._invincible = true;
-      const pre = this._curPlayground
-      this._curPlayground = this._curPlayground ? 0 : 1;
-      this._playgroundAnim[this._curPlayground].play('bg-slide-in')
+      const pre = D.curPlayground
+      D.curPlayground = D.curPlayground ? 0 : 1;
+      this._playgroundAnim[D.curPlayground].play('bg-slide-in')
       this._playgroundAnim[pre].play('bg-slide-out')
+      this.node.emit('changeGround')
     }
-    this.node.parent = this.playgrounds[this._curPlayground]
+    this.node.parent = D.playgrounds[D.curPlayground]
 
     this.node.y = 0
     this.stay();

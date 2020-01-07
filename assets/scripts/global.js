@@ -11,4 +11,6 @@ window.D = {
   carManager: null,
   Car: null,
   score:0,
+  curPlayground:0,
+  playgrounds:null
 }

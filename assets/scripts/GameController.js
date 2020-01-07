@@ -4,6 +4,7 @@ cc.Class({
 
   properties: {
     dieMenu:cc.Node,
+    playgrounds:[cc.Node],
   },
 
   onLoad() {
@@ -15,7 +16,7 @@ cc.Class({
       this.getSize();
     });
     D.game = this;
-
+    D.playgrounds = this.playgrounds
     // get comps
     this.dieMenuAnim = this.dieMenu.getComponent(cc.Animation)
   },

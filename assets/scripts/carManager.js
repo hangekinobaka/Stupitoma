@@ -9,7 +9,6 @@ cc.Class({
 
   properties: {
     carPrefabs: [cc.Prefab],
-    playground: cc.Node,
     spawnInterval: 5,
     _cars:[],
     _lineNum: 4,
@@ -23,23 +22,14 @@ cc.Class({
   },
   start(){
     this.init()
-
+  },
+  onDestroy(){
+    this.cancelListener()
   },
 
   init(){
-    this._schedulers.forEach(func => {
-      this.unschedule(func)
-    });
-    this._schedulers = []
-
-    const list = [...this.playground.children]
-    list.forEach(c => {
-      if(c.name.substr(0,3) === 'car'){
-        c.getComponent(car).destroySelf();
-      }
-    });
-    this._cars = []
-
+    this.registerEvent()
+    this.clearCar(D.curPlayground);
     this.spawn()
   },
 
@@ -62,6 +52,20 @@ cc.Class({
       }, 300 * i);
     }
   },
+  clearCar(index){
+    this._schedulers.forEach(func => {
+      this.unschedule(func)
+    });
+    this._schedulers = []
+
+    const list = [...D.playgrounds[index].children]
+    list.forEach(c => {
+      if(c.name.substr(0,3) === 'car'){
+        c.getComponent(car).destroySelf();
+      }
+    });
+    this._cars = []
+  },
 
   destroyCar(car,line){
     D.carPool['l'+line].despawn(car)
@@ -72,7 +76,7 @@ cc.Class({
     const car = this._cars[line-1][0]
     D.carPool['l'+line].spawnCar(car.prefab,car.comp,
       (line%2) ? cc.v2(D.windowSize.width/2+this.node.width+100,200+160*(line-1)) : cc.v2(D.windowSize.width/2-this.node.width-100,200+160*(line-1)),
-      this.playground,line)
+      D.playgrounds[D.curPlayground],line)
 
     this._cars[line-1].shift();
   },
@@ -85,7 +89,7 @@ cc.Class({
         const car = this._cars[line-1][1]
         D.carPool['l'+line].spawnCar(car.prefab,car.comp,
           (line%2) ? cc.v2(D.windowSize.width+this.node.width/2,200+160*(line-1)) : cc.v2(0,200+160*(line-1)), // start from different side
-          this.playground,line)
+          D.playgrounds[D.curPlayground],line)
       }
     }
 
@@ -122,5 +126,17 @@ cc.Class({
     }
 
     this._cars[line-1].push(car)
-  }
+  },
+
+  // Handle the change scene and get score event
+  _changeGroundHandler(){
+    this.clearCar(D.curPlayground ? 0 : 1);
+    this.spawn()
+  },
+  registerEvent() {
+    D.toma.node.on('changeGround', this._changeGroundHandler, this)
+  },
+  cancelListener() {
+    D.toma.node.off('changeGround', this._changeGroundHandler, this);
+  },
 });

@@ -55,6 +55,9 @@ const Car = cc.Class({
       this.ifTomaHasPassed();
     }
   },
+  onDestroy(){
+    this.cancelListener()
+  },
 
   init() {
     this.node.active = true;
@@ -74,15 +77,16 @@ const Car = cc.Class({
       this.node.zIndex = this.node.zIndex+100;
     }
   },
+  _tomaBackHandler(){
+    this.tomaPassed = false;
+    this.node.zIndex = 5-this._line;
+  },
   registerEvent() {
     // 添加toma是否回来的事件捕捉
-    D.toma.node.on('tomaBack', () => {
-      this.tomaPassed = false;
-      this.node.zIndex = 5-this._line;
-    }, this)
+    D.toma.node.on('tomaBack', this._tomaBackHandler, this)
   },
   cancelListener() {
-    D.toma.node.off('tomaBack', () => { }, this);
+    D.toma.node.off('tomaBack', this._tomaBackHandler, this);
   },
   setLine(l) {
     this._line = l;
