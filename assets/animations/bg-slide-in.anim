@@ -33,5 +33,11 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0.5,
+      "func": "onRoadChanged",
+      "params": []
+    }
+  ]
 }

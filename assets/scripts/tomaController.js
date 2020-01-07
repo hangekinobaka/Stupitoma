@@ -59,7 +59,7 @@ cc.Class({
 
     // 首次初始化
     D.curPlayground = 0;
-    this._invincible = false;
+    this.closeInvincible();
     this.init();
   },
   update(dt) {
@@ -265,7 +265,7 @@ cc.Class({
   },
   goBack(init = false){
     if(!init){
-      this._invincible = true;
+      this.openInvincible()
       const pre = D.curPlayground
       D.curPlayground = D.curPlayground ? 0 : 1;
       this._playgroundAnim[D.curPlayground].play('bg-slide-in')
@@ -283,6 +283,12 @@ cc.Class({
     if(reset) D.score = 0;
     else D.score++;
     this._counter.string = "Score: " + D.score;
+  },
+  closeInvincible(){
+    this._invincible = false;
+  },
+  openInvincible(){
+    this._invincible = true;
   },
   die(dir){
     // mask control
