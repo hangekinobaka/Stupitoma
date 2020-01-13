@@ -66,16 +66,16 @@ cc.Class({
     switch (this.state) {
       case State.Walk:
         this.node.y += this.speed * dt;
+
+        if(this.node.getBoundingBox().yMin > D.windowSize.height){
+          this.setPoint();
+          this.goBack();
+        }
         break;
       case State.None:
       case State.Dead:
       default:
         break;
-    }
-
-    if(this.node.getBoundingBox().yMin > D.windowSize.height){
-      this.setPoint();
-      this.goBack();
     }
   },
 
