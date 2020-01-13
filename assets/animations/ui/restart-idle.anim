@@ -9,34 +9,34 @@
   "wrapMode": "2",
   "curveData": {
     "props": {
-      "rotation": [
+      "angle": [
         {
           "frame": 0.3,
           "value": 0
         },
         {
           "frame": 0.35,
-          "value": -15
-        },
-        {
-          "frame": 0.5,
           "value": 15
         },
         {
-          "frame": 0.55,
-          "value": -10
+          "frame": 0.5,
+          "value": -15
         },
         {
-          "frame": 0.6,
+          "frame": 0.55,
           "value": 10
         },
         {
+          "frame": 0.6,
+          "value": -10
+        },
+        {
           "frame": 0.65,
-          "value": -5
+          "value": 5
         },
         {
           "frame": 0.7,
-          "value": 5
+          "value": -5
         },
         {
           "frame": 0.75,

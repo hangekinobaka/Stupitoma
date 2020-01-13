@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "7e2fab6c-8844-42ee-b4d9-a7c1d56cfd4a",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "toma-middle-legl-walk": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "9f46fff7-3c41-42e8-935a-038394b2a237",
       "rawTextureUuid": "7e2fab6c-8844-42ee-b4d9-a7c1d56cfd4a",
       "trimType": "auto",

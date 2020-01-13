@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "febb9096-20ed-4aba-9c93-b466abfa7dba",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "toma-ldie-1": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "aa235854-0bd8-45f8-b4ae-172de63f9d42",
       "rawTextureUuid": "febb9096-20ed-4aba-9c93-b466abfa7dba",
       "trimType": "auto",

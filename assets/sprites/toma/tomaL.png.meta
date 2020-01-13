@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "42f1febe-ed5d-4511-a961-6a88b334628d",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "tomaL": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "2ae664c2-2c58-4cb9-9809-2901d700cc6c",
       "rawTextureUuid": "42f1febe-ed5d-4511-a961-6a88b334628d",
       "trimType": "auto",
