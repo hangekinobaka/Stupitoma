@@ -132,7 +132,7 @@ cc.Class({
     }
 
     this._died = false;
-    this.node.zIndex = 10;
+    this.node.zIndex = 6;
     this.stay();
     this.goBack(true)
 
@@ -304,6 +304,6 @@ cc.Class({
   },
   onDieOver(){
     this._died = true;
-    this.node.zIndex = 1;
+    this.node.zIndex = 0;
   }
 });

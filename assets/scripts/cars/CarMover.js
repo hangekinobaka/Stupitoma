@@ -11,7 +11,7 @@ const Car = cc.Class({
     },
     speed: 100,
     carName: '',
-    _line: '',
+    _line: 0,
     _side: null,
   },
   statics: {
@@ -63,7 +63,7 @@ const Car = cc.Class({
     this.node.active = true;
 
     this.tomaPassed = false;
-    this.node.zIndex = 5-this._line;
+    this.node.zIndex = 5 - this._line;
 
     this.registerEvent();
   },
@@ -79,7 +79,7 @@ const Car = cc.Class({
   },
   _tomaBackHandler(){
     this.tomaPassed = false;
-    this.node.zIndex = 5-this._line;
+    this.node.zIndex = 5 - this._line;
   },
   registerEvent() {
     // 添加toma是否回来的事件捕捉
