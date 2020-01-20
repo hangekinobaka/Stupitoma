@@ -44,7 +44,7 @@ cc.Class({
     this._menuScoreLabel.string = "Score: " + D.score;
     const high = Math.max(D.score, D.highScore);
     D.highScore = high;
-    this._highScoreLabel.string = "High Score: " + high;
+    this._highScoreLabel.string = "Best: " + high;
     setTimeout(() => {
       this.gameScore.opacity = 0;
       this.dieMenu.active = true;

@@ -1,6 +1,6 @@
 {
   "ver": "2.3.3",
-  "uuid": "803838b5-2115-4d18-959d-3f26ba1ba163",
+  "uuid": "81ad299d-0e7d-4d0a-9b9c-37db924725b2",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -9,10 +9,10 @@
   "packable": true,
   "platformSettings": {},
   "subMetas": {
-    "p-road0122": {
+    "road": {
       "ver": "1.0.4",
-      "uuid": "37ec44dd-f6fd-4842-8b4c-68c4b769b922",
-      "rawTextureUuid": "803838b5-2115-4d18-959d-3f26ba1ba163",
+      "uuid": "8478aa6e-d72a-4e5b-b3da-7ee2c3441c5c",
+      "rawTextureUuid": "81ad299d-0e7d-4d0a-9b9c-37db924725b2",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
